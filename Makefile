@@ -21,6 +21,14 @@ shell:
 compile:
 	$(DO) cargo build --color=never
 
+.PHONY: tests
+tests:
+	$(DO) cargo test --color=never
+
+.PHONY: fmt
+fmt:
+	$(DO) cargo fmt
+
 .PHONY: take-ownership
 take-ownership:
 	sudo chown -R $(ME) app
