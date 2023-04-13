@@ -1,0 +1,6 @@
+services:
+  dev:
+    container_name: python-rust-module-dev
+    build:
+      context: .
+      dockerfile: dev/Dockerfile
