@@ -14,3 +14,5 @@ COPY dev/requirements.txt .
 RUN \
     --mount=type=cache,target=/var/cache/pip \
     pip install -r requirements.txt
+
+WORKDIR /app
