@@ -29,6 +29,10 @@ tests:
 fmt:
 	$(DO) cargo fmt
 
+.PHONY: start
+start:
+	$(DO) cargo run --bin somebin
+
 .PHONY: take-ownership
 take-ownership:
 	sudo chown -R $(ME) app
