@@ -4,7 +4,8 @@ RUN \
     --mount=type=cache,target=/var/cache/apt \
     apt-get update \
     && apt-get clean -y \
-    && apt-get install -y -q python3 python3-pip python-is-python3
+    && apt-get install -y -q \
+       python3 python3-pip python3-venv python-is-python3
 
 RUN rustup component add rustfmt
 RUN python -m pip install --upgrade pip
@@ -16,3 +17,9 @@ RUN \
     pip install -r requirements.txt
 
 WORKDIR /app
+
+COPY app/ ./
+
+RUN \
+    --mount=type=cache,target=/var/cache/cargo \
+    cargo build

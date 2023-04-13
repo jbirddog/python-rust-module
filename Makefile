@@ -33,6 +33,10 @@ fmt:
 start:
 	$(DO) cargo run --bin somebin
 
+.PHONY: bindings
+bindings:
+	$(DO) /app/bin/make_bindings.sh
+
 .PHONY: take-ownership
 take-ownership:
 	sudo chown -R $(ME) app
