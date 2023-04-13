@@ -33,7 +33,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.target }}
-          working-directory: app
+          working-directory: app/somebindings
           args: --release --out dist --find-interpreter
           sccache: 'true'
           manylinux: auto
@@ -58,7 +58,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.target }}
-          working-directory: app
+          working-directory: app/somebindings
           args: --release --out dist --find-interpreter
           sccache: 'true'
       - name: Upload wheels
@@ -81,7 +81,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.target }}
-          working-directory: app
+          working-directory: app/somebindings
           args: --release --out dist --find-interpreter
           sccache: 'true'
       - name: Upload wheels
@@ -97,6 +97,7 @@ jobs:
       - name: Build sdist
         uses: PyO3/maturin-action@v1
         with:
+          working-directory: app/somebindings
           command: sdist
           args: --out dist
       - name: Upload sdist
